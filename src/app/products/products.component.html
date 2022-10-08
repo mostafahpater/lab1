@@ -1,14 +1,67 @@
+<div>
 
-<div class="d-flex">
-        
-           <div class="card" style="width: 18rem;" *ngFor="let pro of list">
-            <img src="{{pro.Img}}" width="200" height="200" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">{{pro.Name}}</p>
-              <p class="card-text">{{pro.Quantity}}</p>
-              <p class="card-text">{{pro.Price}}</p>
-            </div>
+  <select name="category" id="category" [(ngModel)]="aly">
+    <option value="oppo">oppo</option>
+    <option value="apple">apple</option>
+  </select>
+
+  <div class="d-flex justify-content-between">
+
+    <div class="card" style="width: 18rem;" app-products [ngSwitch]="pro.brand" *ngFor="let pro of list">
+      <div [hidden]="pro.brand==aly">
+        <img src="{{pro.Img}}" width="200" height="200" class="card-img-top" alt="...">
+        <div class="card-body">
+
+          <p class="card-text">{{pro.Name}}</p>
+          <p class="card-text">{{pro.brand}}</p>
+          <p class="card-text">{{pro.Quantity}}</p>
+          <p class="card-text">{{pro.Price}}</p>
+          <p>{{pro.num}} <b>Available</b></p>
+          <div>
+            <button (click)="pro.num=pro.num-1"
+              [ngStyle]="{'background-color':pro.num == 1 ? 'yellow' :(pro.num == 0 ? 'red':null)}"
+              [disabled]="pro.num == 0">Buy</button>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-      
 
+
+<div class="forms">
+  <form class="row g-3" (ngSubmit)="register()">
+    <div class="col-md-6">
+      <label for="inputname" class="form-label">name</label>
+      <input type="text" class="form-control" id="inputname" placeholder="Enter your Name" required>
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" required>
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Password confirm</label>
+      <input type="password" class="form-control" id="inputPassword4" required>
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Password</label>
+      <input type="password" class="form-control" id="inputPassword4" required>
+    </div>
+    <div class="col-md-6">
+      <label for="inputUsername" class="form-label">Username</label>
+      <input type="text" class="form-control" id="inputUsername" placeholder="Enter Username" required>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+  </form>
+</div>
+<!-- <input type="text" id="addnew" [(ngModel)]="aly"  />
+  
+  <button (click)="addnew()">add</button>
+
+  <p *ngFor="let a of lisa">{{a}}</p>
+
+<div *ngFor="let i of lzst" >
+  <p *ngFor="let x of i.child">{{x}}</p>
+</div> -->
