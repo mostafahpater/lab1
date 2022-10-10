@@ -1,0 +1,31 @@
+<table  style="width:100%;"  >
+    <tr>
+        <th>NO</th>
+        <th>image</th>
+        <th>name</th>
+        <th>brand</th>
+        <th>price</th>
+        <th>Qty</th>
+        <th>sell</th>
+        <th>details</th>
+        <th>Buy</th>
+    </tr>
+    <tr *ngFor="let pro of prolist">
+        <td><p>{{pro.ID}}</p></td>
+        <td><img src="{{pro.Img}}" width="70" height="70" class="card-img-top" alt="..."></td>
+        <td >{{pro.Name}}</td>
+        <td >{{pro.brand}}</td>
+        <td >{{pro.Price}}</td>
+        <td>{{pro.num}} <b [ngStyle]="{'text':pro.num == 0 ? 'UnAvailable':undefined}">Available</b></td>
+        <td>
+            <input type="number" name="number" [(ngModel)]="number" (click)="pro.num=pro.num-1" [disabled]="pro.num == 0">
+        </td>
+        <td><button type="submit">details</button></td>
+        <td>
+            <button (click)="pro.num=pro.num-1"
+                [ngStyle]="{'background-color':pro.num == 1 ? 'yellow' :(pro.num == 0 ? 'red':null)}"
+                [disabled]="pro.num == 0">Buy</button>
+        </td>
+
+
+</table>

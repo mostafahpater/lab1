@@ -2,6 +2,8 @@ import { Component, OnInit,NgModule } from '@angular/core';
 import { Iproduct,Catagory } from "../modols/product";
 import { Directive,HostListener,HostBinding } from "@angular/core";
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { ProductserviceService } from '../service/productservice.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -11,24 +13,7 @@ export class ProductsComponent  {
   list:Iproduct[]=[]
   category:Catagory 
   aly:string="";
-  addperson: FormGroup;
-  // lisa:string[]=[];
-  // lzst=[
-  //   {ID:1,Name:"product1",brand:"apple",Quantity:5,Price:20799,child:['ali','ahmed','mohamed']},
-  //   {ID:2,Name:"product2",brand:"apple",Quantity:5,Price:4399,child:['ali','ahmed','mohamed']},
-  //   {ID:3,Name:"product3",brand:"oppo",Quantity:5,Price:4888,child:['ali','ahmed','mohamed']},
-  //   {ID:4,Name:"product4",brand:"oppo",Quantity:5,Price:4999,child:['ali','ahmed','mohamed']},
-  // ]
-  // showapple(){
-  //   this.lzst.filter((o) => {
-  //     o.brand.search('apple')
-  //     console.log(o.brand.includes('apple'));
-  //   })
-  // }
-  // addnew(){
-  //   this.lisa.push(this.aly)
-  //   console.log(this.lisa);
-  // }
+  
   @HostBinding('style.color') color!: string;
   @HostListener('mouseover')
     onMouseOver(){
@@ -41,7 +26,7 @@ export class ProductsComponent  {
     console.log("Mouse Leave")
   }
   
-  constructor() {
+  constructor(private router:Router) {
     this.category={
         name1:"apple"
       ,
@@ -53,25 +38,15 @@ export class ProductsComponent  {
       {ID:3,Name:"product3",num:15,brand:"oppo",Quantity:5,Price:4888,Img:"https://cdn1.smartprix.com/rx-ioKTQfBn2-w1200-h1200/oKTQfBn2.jpg"},
       {ID:4,Name:"product4",num:20,brand:"oppo",Quantity:5,Price:4999,Img:"https://image.oppo.com/content/dam/oppo/common/mkt/v2-2/f21_pro/navigation/v2/Navigation-SunsetOrange-427_600-pc.png.thumb.webp"},
     ]
-    this.addperson = new FormGroup({
-      name: new FormControl("", [Validators.required]),
-      Username: new FormControl("", [Validators.required]),
-      email: new FormControl("", [Validators.required]),
-      password: new FormControl("", [Validators.required, Validators.min(8)])
-
-  })
-    // this.ahmed= this.list.forEach(e => {
-    //   e.num--
-    //   console.log("object");
-    // });
-  
   }
-  register() {
-    console.log(this.addperson.value)
+  opendetails(ID:number){
+    this.router.navigate(['/productlist/',ID])
+  }
+
 }
  
  
   
  
-}
+
 

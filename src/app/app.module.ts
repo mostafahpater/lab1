@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
+import { ProductChildComponent } from './product-child/product-child.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
     ProductsComponent,
     FooterComponent,
     RegisterComponent,
+    ProductChildComponent,
     
   ],
   imports: [
