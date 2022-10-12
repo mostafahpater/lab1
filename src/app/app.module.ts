@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductChildComponent } from './product-child/product-child.component';
+import { NationalComponent } from './national/national.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ProductChildComponent } from './product-child/product-child.component';
     FooterComponent,
     RegisterComponent,
     ProductChildComponent,
+    NationalComponent,
     
   ],
   imports: [
