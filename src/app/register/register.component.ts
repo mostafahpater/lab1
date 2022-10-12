@@ -8,7 +8,7 @@ import { Register } from "../modols/product";
 })
 export class RegisterComponent implements OnInit {
   addperson: FormGroup;
-  // user:Register;
+  arr: any[]=[]
 
   constructor() { 
     this.addperson = new FormGroup({
@@ -22,7 +22,8 @@ export class RegisterComponent implements OnInit {
   register() {
     
     let user = this.addperson.value as Register
-    console.log(user);
+    this.arr.push(user)
+    console.log(this.arr);
   }
 
   ngOnInit(): void {

@@ -1,24 +1,24 @@
 <div class="forms">
-    <form class="row g-3"  (ngSubmit)="register()">
+    <form class="row g-3"  [formGroup]="addperson" (ngSubmit)="register()">
       <div class="col-md-6">
         <label for="inputname" class="form-label">name</label>
-        <input type="text" name="name"  class="form-control" id="inputname" placeholder="Enter your Name" required>
+        <input type="text" name="name" formControlName="name"  class="form-control" id="name" placeholder="Enter your Name" required>
       </div>
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" name="Email"  class="form-control" id="inputEmail4" required>
+        <input type="email" name="Email" formControlName="email"  class="form-control" id="inputEmail4" required>
       </div>
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Password confirm</label>
-        <input type="password" name="Password-confirm" class="form-control" id="inputPassword4" required>
+        <input type="password" name="Password-confirm" formControlName="confirmpassword" class="form-control" id="inputPassword4" required>
       </div>
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Password</label>
-        <input type="password" name="Password" class="form-control" id="inputPassword4" required>
+        <input type="password" name="Password" class="form-control" formControlName="password" id="inputPassword4" required>
       </div>
       <div class="col-md-6">
         <label for="inputUsername" class="form-label">Username</label>
-        <input type="text" name="Username" class="form-control" id="inputUsername" placeholder="Enter Username" required>
+        <input type="text" name="Username" class="form-control" formControlName="Username" id="inputUsername" placeholder="Enter Username" required>
       </div>
       <div class="col-12">
         <button type="submit" class="btn btn-primary" >Sign up</button>
