@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NationalComponent implements OnInit {
 
   aa = function calcbirth(){
-    let aNumber = Number(window.prompt("Type a number", "")).toString()
+    let aNumber = Number(window.prompt("Type Your National ID", "29909011509345")).toString()
     
    return aNumber.slice(1,3)+"/"+aNumber.slice(3,5)+"/"+aNumber.slice(5,7);
     
